@@ -1,0 +1,34 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    CodeInfo
+{% endblock %}
+
+{% block content %}
+                <div class = 'art'>
+                    <p><pre class="tit"> description </pre></p>
+                    <p><pre > this is the languages documentation site </pre></p>
+                </div>
+                <div class = 'art'>
+                    <p><pre > Reviews Field </pre></p>
+                    {% for el in review %}
+                        <div class = 'review'>
+                            <div class="tit"><p><pre > {{el.UserName}} </pre></p></div>
+                            <p><pre > {{el.Review}} </pre></p>
+                        </div>
+
+                    {% endfor %}
+                </div>
+                <div class = 'art'>
+                    <form action="{% url 'main' %}" method="post">
+                        {% csrf_token %}
+                        <p><label for="{{ form.UserName.id_for_label }}"> {{form.UserName.label}}:</label> {{ form.UserName}}</p>
+                        <div>{{ form.UserName.errors}}</div>
+                        <p><label for="{{ form.Review.id_for_label }}"> {{form.Review.label}}:</label> {{ form.Review}}</p>
+                        <div>{{ form.Review.errors}}</div>
+                        <button class="btn" type="submit">
+                            Добавить
+                        </button>
+                    </form>
+                </div>
+{% endblock %}
