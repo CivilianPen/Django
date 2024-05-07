@@ -1,8 +1,0 @@
-{% for el in R %}
-    <div class = 'tit'>
-        <p><pre > {{el.UserName}} </pre></p>
-        <p><pre > {{el.Review}} </pre></p>
-        <p><pre > {{el.For}} </pre></p>
-        <p><pre > {{el.Foror}} </pre></p>
-    </div>
-{% endfor %}
